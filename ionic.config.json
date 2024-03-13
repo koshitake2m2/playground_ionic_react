@@ -1,0 +1,7 @@
+{
+  "name": "playground_ionic_react",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
