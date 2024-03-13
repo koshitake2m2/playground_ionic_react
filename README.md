@@ -13,12 +13,24 @@
 3. install ionic
 
 ```bash
+# install ionic
 npm install -g @ionic/cli
+
+# setup project
 ionic start playground_ionic_react tabs --type react
-npm install @capacitor/android
+cd playground_ionic_react
+
+# install java 17
+brew install homebrew/cask-versions/corretto17
+jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
 jenv local 17.0
+
+# setup android
+npm install @capacitor/android
 ionic cap add android
 ionic cap sync
+
+# open Android Studio
 ionic cap open android
 ```
 
