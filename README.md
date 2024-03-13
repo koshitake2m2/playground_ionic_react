@@ -32,6 +32,9 @@ ionic cap sync
 
 # open Android Studio
 ionic cap open android
+
+# other
+npm i -D prettier eslint-config-prettier
 ```
 
 4. `Run 'app'` in Android Studio
@@ -43,6 +46,12 @@ ionic cap open android
 ionic cap run android --list
 # live reloadでemulatorを起動
 ionic cap run android --target Pixel_3a_API_34_extension_level_7_arm64-v8a_1 -l --external
+```
+
+## develop on local
+
+```bash
+ionic start
 ```
 
 ## refs
