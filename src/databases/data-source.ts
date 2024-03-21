@@ -1,22 +1,3 @@
-// import 'reflect-metadata'
-// import { DataSource } from 'typeorm'
-// import { User } from './entity/User'
-
-// const sqljsDataSource = new DataSource({
-//   type: 'sqljs',
-//   entities: [User],
-// })
-// // const sqlite3DataSource = new DataSource({
-// //   type: 'sqlite',
-// //   database: 'test',
-// //   synchronize: true,
-// //   logging: false,
-// //   entities: [User],
-// //   migrations: [],
-// //   subscribers: [],
-// // })
-// export const AppDataSource = sqljsDataSource
-
 import { DataSource, type DataSourceOptions } from 'typeorm'
 import sqliteParams from './sqliteParams'
 import * as entities from './entities'

@@ -2,7 +2,6 @@ import sqliteParams from './databases/sqliteParams'
 import authorDataSource from './databases/data-source'
 
 export class InitializeDataSourceService {
-  isInitialized = false
   constructor() {}
 
   async init(): Promise<void> {
@@ -31,7 +30,6 @@ export class InitializeDataSourceService {
 
     if (sqliteParams.platform !== 'web') {
       initializeDataSources()
-      // Now depending on the Framework render your APP
     } else {
       window.addEventListener('DOMContentLoaded', async () => {
         const jeepEl = document.createElement('jeep-sqlite')
@@ -41,8 +39,6 @@ export class InitializeDataSourceService {
           .then(async () => {
             await sqliteParams.connection.initWebStore()
             await initializeDataSources()
-            this.isInitialized = true
-            // Now depending on the Framework render your APP
           })
           .catch((err) => {
             console.log(`Error: ${err}`)
