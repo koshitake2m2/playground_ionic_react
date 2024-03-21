@@ -6,7 +6,7 @@ import * as migrations from '../migrations'
 export const AppDataSource = new DataSource({
   type: 'sqlite',
   // database, entities, migrationsはcliを実行したディレクトリからの相対パスで指定する
-  database: 'src/databases/sqlite/tmp/database.sqlite',
+  database: 'src/databases/sqlite/database.sqlite',
   // entities: ['src/databases/entities/*.ts'],
   // migrations: ['src/databases/migrations/*.ts'],
   entities: entities,

@@ -51,6 +51,7 @@ ionic cap run android --target Pixel_3a_API_34_extension_level_7_arm64-v8a_1 -l 
 ```bash
 # sqliteでmigration fileを生成する
 npx typeorm-ts-node-esm migration:run --dataSource src/databases/sqlite/sqlite-data-source.ts
+npx typeorm-ts-node-esm migration:create src/databases/migrations/XXX
 npx typeorm-ts-node-esm migration:generate --dataSource src/databases/sqlite/sqlite-data-source.ts --pretty src/databases/migrations/XXX
 
 # sqlite
