@@ -2,10 +2,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import 'reflect-metadata'
-import { JeepSqlite } from 'jeep-sqlite/dist/components/jeep-sqlite'
 import { InitializeDataSourceService } from './InitializeDataSourceService'
-
-customElements.define('jeep-sqlite', JeepSqlite)
 
 const initializeDataSources = new InitializeDataSourceService()
 initializeDataSources.init()

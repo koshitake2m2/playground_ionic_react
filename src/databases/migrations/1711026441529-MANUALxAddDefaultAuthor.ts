@@ -5,7 +5,7 @@ export class MANUALxAddDefaultAuthor1711026441529
 {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
-      `insert into "author" ("id", "name", "birthday", "email") values (1, 'Umed', '1983-11-18', '')`
+      `insert into "author" ("id", "name", "birthday", "email") values (1, 'Tom', '1970-01-01', 'hello@example.com')`
     )
   }
 

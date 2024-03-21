@@ -1,5 +1,6 @@
 import sqliteParams from './databases/sqliteParams'
 import authorDataSource from './databases/data-source'
+import { JeepSqlite } from 'jeep-sqlite/dist/components/jeep-sqlite'
 
 export class InitializeDataSourceService {
   constructor() {}
@@ -31,6 +32,7 @@ export class InitializeDataSourceService {
     if (sqliteParams.platform !== 'web') {
       initializeDataSources()
     } else {
+      customElements.define('jeep-sqlite', JeepSqlite)
       window.addEventListener('DOMContentLoaded', async () => {
         const jeepEl = document.createElement('jeep-sqlite')
         document.body.appendChild(jeepEl)
