@@ -27,3 +27,10 @@ yarn-error.log*
 
 # Optional eslint cache
 .eslintcache
+
+# typeorm
+tmp/
+temp/
+*.sqlite
+
+sql-wasm.wasm

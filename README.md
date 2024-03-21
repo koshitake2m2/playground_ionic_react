@@ -48,13 +48,29 @@ ionic cap run android --list
 ionic cap run android --target Pixel_3a_API_34_extension_level_7_arm64-v8a_1 -l --external
 ```
 
+```bash
+# sqliteでmigration fileを生成する
+npx typeorm-ts-node-esm migration:run --dataSource src/databases/sqlite/sqlite-data-source.ts
+npx typeorm-ts-node-esm migration:generate --dataSource src/databases/sqlite/sqlite-data-source.ts --pretty src/databases/migrations/XXX
+
+# sqlite
+sqlite3 src/databases/sqlite/tmp/database.sqlite
+
+```
+
 ## develop on local
 
 ```bash
 ionic start
 ```
 
+## TODO
+
+- [ ] sqlite3 web
+- [ ] sqlite3 android
+
 ## refs
 
 - [Download Android Studio &amp; App Tools - Android Developers](https://developer.android.com/studio)
 - [Create and manage virtual devices | Android Studio | Android Developers](https://developer.android.com/studio/run/managing-avds)
+- [Ionic 7 SQLite Database CRUD App Example Tutorial using React and @capacitor-community/sqlite | JeepQ Capacitor Plugins Tutorials](https://jepiqueau.github.io/2023/08/31/Ionic7React-SQLite-CRUD-App.html)
