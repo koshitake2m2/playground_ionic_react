@@ -51,7 +51,7 @@ ionic cap run android --target Pixel_3a_API_34_extension_level_7_arm64-v8a_1 -l 
 ```bash
 # sqliteでmigration fileを生成する
 npx typeorm-ts-node-esm migration:run --dataSource src/databases/sqlite/sqlite-data-source.ts
-npx typeorm-ts-node-esm migration:create src/databases/migrations/XXX
+npx typeorm-ts-node-esm migration:create src/databases/migrations/MANUALxXXX
 npx typeorm-ts-node-esm migration:generate --dataSource src/databases/sqlite/sqlite-data-source.ts --pretty src/databases/migrations/XXX
 
 # sqlite
@@ -75,3 +75,4 @@ ionic start
 - [Download Android Studio &amp; App Tools - Android Developers](https://developer.android.com/studio)
 - [Create and manage virtual devices | Android Studio | Android Developers](https://developer.android.com/studio/run/managing-avds)
 - [Ionic 7 SQLite Database CRUD App Example Tutorial using React and @capacitor-community/sqlite | JeepQ Capacitor Plugins Tutorials](https://jepiqueau.github.io/2023/08/31/Ionic7React-SQLite-CRUD-App.html)
+- [sqlite/docs/TypeORM-Usage-From-5.6.0.md at master · capacitor-community/sqlite · GitHub](https://github.com/capacitor-community/sqlite/blob/master/docs/TypeORM-Usage-From-5.6.0.md)
