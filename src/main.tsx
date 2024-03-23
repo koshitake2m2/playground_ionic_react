@@ -24,18 +24,18 @@ import '@ionic/react/css/display.css'
 import './theme/variables.css'
 import { setupIonicReact } from '@ionic/react'
 
+setupIonicReact()
+
 const initializeDataSources = new InitializeDataSourceService()
 initializeDataSources.init()
 
 // TODO: いい感じに待ってください. globalなstateで管理する？
-await new Promise((r) => setTimeout(r, 1000))
-
-setupIonicReact()
-
-const container = document.getElementById('root')
-const root = createRoot(container!)
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+new Promise((r) => setTimeout(r, 1000)).then(() => {
+  const container = document.getElementById('root')
+  const root = createRoot(container!)
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  )
+})
