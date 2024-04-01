@@ -25,7 +25,7 @@ export const AuthrosPage: React.FC = () => {
   const authorRepository = dataSourceAuthor.getRepository(Author)
   useEffect(() => {
     authorRepository.find().then((result) => {
-      console.log(result)
+      console.log('result', result)
       setAuthors(result)
     })
   }, [])
@@ -38,7 +38,7 @@ export const AuthrosPage: React.FC = () => {
   const onWillDismis = (event: CustomEvent<OverlayEventDetail>) => {
     console.log('onWillDismiss')
     authorRepository.find().then((result) => {
-      console.log(result)
+      console.log('result', result)
       setAuthors(result)
     })
   }

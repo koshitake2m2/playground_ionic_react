@@ -24,18 +24,22 @@ import '@ionic/react/css/display.css'
 import './theme/variables.css'
 import { setupIonicReact } from '@ionic/react'
 
+console.log('initializing... at main.tsx')
+
 setupIonicReact()
 
 const initializeDataSources = new InitializeDataSourceService()
-initializeDataSources.init()
+initializeDataSources.init().then(() => {
+  console.log('initializing done')
 
-// TODO: いい感じに待ってください. globalなstateで管理する？
-new Promise((r) => setTimeout(r, 1000)).then(() => {
-  const container = document.getElementById('root')
-  const root = createRoot(container!)
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  )
+  // TODO: いい感じに待ってください. globalなstateで管理する？
+  new Promise((r) => setTimeout(r, 1000)).then(() => {
+    const container = document.getElementById('root')
+    const root = createRoot(container!)
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    )
+  })
 })

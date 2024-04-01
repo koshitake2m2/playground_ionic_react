@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
-import * as entities from '../entities'
-import * as migrations from '../migrations'
+import * as entityList from '../entity-list'
+import * as migrationList from '../migration-list'
 
 export const AppDataSource = new DataSource({
   type: 'sqlite',
@@ -9,8 +9,8 @@ export const AppDataSource = new DataSource({
   database: 'src/databases/sqlite/database.sqlite',
   // entities: ['src/databases/entities/*.ts'],
   // migrations: ['src/databases/migrations/*.ts'],
-  entities: entities,
-  migrations: migrations, //["../migrations/author/*{.ts,.js}"]
+  entities: entityList,
+  migrations: migrationList, //["../migrations/author/*{.ts,.js}"]
   // 以下のような書き方もある
   // entities: [User],
   // migrations: migrations,

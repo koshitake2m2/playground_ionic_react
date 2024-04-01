@@ -44,8 +44,12 @@ npm i -D prettier eslint-config-prettier
 ```bash
 # targetの一覧を表示
 ionic cap run android --list
-# live reloadでemulatorを起動
+
+# live reloadでemulatorを起動.
 ionic cap run android --target Pixel_3a_API_34_extension_level_7_arm64-v8a_1 -l --external
+
+# emulator or 実機にインストール.
+ionic cap run android --target Pixel_3a_API_34_extension_level_7_arm64-v8a_1
 ```
 
 ```bash
@@ -56,6 +60,34 @@ npx typeorm-ts-node-esm migration:generate --dataSource src/databases/sqlite/sql
 
 # sqlite
 sqlite3 src/databases/sqlite/tmp/database.sqlite
+
+```
+
+### emulatorのsqlite3に接続
+
+1. emulatorを起動
+
+2. ローカルから adb shell に接続
+
+```bash
+cd ~/Library/Android/sdk/platform-tools
+
+# deviceの一覧を表示. serial_number を取得
+./adb devices -l
+serial_number=XXX
+./adb -s $serial_number shell
+./adb -s $serial_number shell run-as $PACKAGE_NAME chmod 755 /data/data/$PACKAGE_NAME
+
+```
+
+3. adb shell内でsqlite3に接続
+
+```bash
+su root
+PACKAGE_NAME=io.ionic.starter
+cd data/data/$PACKAGE_NAME/databases
+DB_NAME=my_db
+sqlite3 "${DB_NAME}SQLite.db"
 
 ```
 

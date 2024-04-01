@@ -1,7 +1,7 @@
 import { DataSource, type DataSourceOptions } from 'typeorm'
 import sqliteParams from './sqliteParams'
-import * as entities from './entities'
-import * as migrations from './migrations'
+import * as entityList from './entity-list'
+import * as migrationList from './migration-list'
 
 const dbName = 'my_db'
 
@@ -11,8 +11,10 @@ const dataSourceConfig: DataSourceOptions = {
   driver: sqliteParams.connection,
   database: dbName,
   mode: 'no-encryption',
-  entities: entities,
-  migrations: migrations, //["../migrations/author/*{.ts,.js}"]
+  entities: entityList,
+  migrations: migrationList, //["../migrations/author/*{.ts,.js}"]
+  // パスて指定するとうまくいかない
+  // migrations: ['src/databases/migrations/*.ts'],
   subscribers: [],
   logging: [/*'query',*/ 'error', 'schema'],
   synchronize: false, // !!!You will lose all data in database if set to `true`
