@@ -1,7 +1,7 @@
 import sqliteParams from './databases/sqliteParams'
-import authorDataSource from './databases/data-source'
 import { JeepSqlite } from 'jeep-sqlite/dist/components/jeep-sqlite'
 import { Capacitor } from '@capacitor/core'
+import { dataSourceAuthor, initDataSource } from './databases/data-source'
 
 export class InitializeDataSourceService {
   constructor() {}
@@ -16,24 +16,30 @@ export class InitializeDataSourceService {
         console.log('Error connection.checkConnectionsConsistency', e)
         return {}
       })
+      await initDataSource()
+      const authorDataSource = dataSourceAuthor
 
       // Loop through the DataSources
       for (const mDataSource of [authorDataSource]) {
-        console.log(`Initializing ${mDataSource.dbName}`)
-        await mDataSource.dataSource.initialize().catch((e) => {
-          console.log(`Error initializing ${mDataSource.dbName}`, e)
+        const database = mDataSource.options.database ?? 'dummy'
+        console.log(`Initializing ${database}`)
+        await mDataSource.initialize().catch((e) => {
+          console.log(`Error initializing ${database}`, e)
           return {}
         })
-        if (mDataSource.dataSource.isInitialized) {
-          console.log(`Running migrations for ${mDataSource.dbName}`)
-          await mDataSource.dataSource.runMigrations().catch((e) => {
-            console.log(`Error running migrations for ${mDataSource.dbName}`, e)
+        if (mDataSource.isInitialized) {
+          console.log(`Running migrations for ${mDataSource.options.database}`)
+          await mDataSource.runMigrations().catch((e) => {
+            console.log(
+              `Error running migrations for ${mDataSource.options.database}`,
+              e
+            )
             return {}
           })
         }
         if (platform === 'web') {
-          console.log(`Saving ${mDataSource.dbName} to store`)
-          await sqliteParams.connection.saveToStore(mDataSource.dbName)
+          console.log(`Saving ${mDataSource.options.database} to store`)
+          await sqliteParams.connection.saveToStore('my_db')
         }
       }
     }

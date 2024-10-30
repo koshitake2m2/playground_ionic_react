@@ -1,5 +1,13 @@
 # playground_ionic_react
 
+## Unresolved
+
+- 実機だとDataSourceをtype=capacitorで実行しているとき, 以下のようなエラーがでてしまう
+  - Migration class name should have a JavaScript timestamp appended.
+  - とりあえずcapacitor 6にupdateしてみる？
+- DataSourceをtype=sqliteで実行してもうまくいかない
+  - sqlite3はnode関連のライブラリに依存しているので利用できるか不明. capacitorはnodeではない
+
 ## setup
 
 1. install Android Studio
@@ -62,6 +70,12 @@ npx typeorm-ts-node-esm migration:generate --dataSource src/databases/sqlite/sql
 sqlite3 src/databases/sqlite/tmp/database.sqlite
 
 ```
+
+### Debug
+
+こちらでemulatorや実機のconsole.logやエラーを閲覧できる
+
+chrome://inspect/#devices
 
 ### emulatorのsqlite3に接続
 

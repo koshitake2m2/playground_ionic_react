@@ -19,7 +19,7 @@ import ExploreContainer from '../components/ExploreContainer'
 import './Tab1.css'
 import { useEffect, useRef, useState } from 'react'
 import { Author } from '../databases/entities/author'
-import authorDataSource, { dataSourceAuthor } from '../databases/data-source'
+import { dataSourceAuthor } from '../databases/data-source'
 import { add, chevronUpCircle } from 'ionicons/icons'
 import { OverlayEventDetail } from '@ionic/react/dist/types/components/react-component-lib/interfaces'
 
